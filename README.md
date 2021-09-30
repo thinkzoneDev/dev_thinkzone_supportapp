@@ -1,7 +1,7 @@
 
-**ThinkZone ManagerApp** 
+**ThinkZone SupportApp** 
 
-Auther: Nrusingha nath Nayak
+Auther: ThinkZone Edubridge
 
 Before you proceed, have a little idea on ....
 * Angular 7
