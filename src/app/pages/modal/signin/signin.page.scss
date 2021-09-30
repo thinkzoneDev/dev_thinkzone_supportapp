@@ -1,0 +1,88 @@
+//Abinash Code
+ion-content {
+  --background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+    url("../../../../assets/image/welcome.jpg") no-repeat center center / cover;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  .container {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    height: 100%;
+  }
+  mat-card {
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
+    background: rgba(255, 255, 255, 0.8);
+    overflow-y: scroll;
+    .input-icon {
+      display: grid;
+      grid-template-columns: 90% 10%;
+      align-items: center;
+      width: 100%;
+      grid-gap: 5px;
+      mat-form-field {
+        width: 100%;
+      }
+      ion-icon {
+        font-size: 1.3rem;
+      }
+    }
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 5px;
+    button {
+      width: 90%;
+    }
+    span {
+      margin-left: 5px;
+    }
+  }
+  ion-footer {
+    padding: 40px 0px;
+    .footer {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      a {
+        text-decoration: none;
+      }
+      .container-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        button {
+          ion-icon {
+            font-size: 1.8rem;
+          }
+        }
+        mat-label {
+          color: white;
+          font-size: 0.8rem;
+          margin-top: 6px;
+        }
+      }
+    }
+    p {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: white;
+      text-align: center;
+    }
+  }
+}
+
+ion-content::-webkit-scrollbar {
+  display: none;
+}
+mat-card::-webkit-scrollbar {
+  display: none;
+}

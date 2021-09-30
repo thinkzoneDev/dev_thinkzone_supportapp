@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="bg-white">
+  <ion-searchbar
+    showCancelButton="focus"
+    cancelButtonText="Custom Cancel"
+    [(ngModel)]="searchText"
+    (keyup)="onSearch($event)"
+    (ionClear)="ionClear()"
+  ></ion-searchbar>
+  <!-- <ion-card class="bg-white" no-margin>
+    <ion-card-content> -->
+  <!-- <ion-list class="item-text-wrap">
+        <ion-item *ngFor = "let res of notificationdata; let i=index;" (click)="openMessage(res)">
+          <ion-item class="unread-message">
+            <ion-icon slot="start" name="mail"></ion-icon>{{ res.title }}
+          </ion-item>
+ 
+          <ion-item *ngIf="res.status == 'read'" class="read-message">
+              <ion-icon slot="start" name="mail-open"></ion-icon>{{ res.title }}
+            </ion-item>
+        </ion-item>
+      </ion-list> -->
+
+  <ion-list>
+    <ion-item *ngFor="let item of notificationdata" (click)="openMessage(item)">
+      <ion-label *ngIf="item.status == 'unread'" class="unread-message">
+        <ion-icon slot="start" name="mail"></ion-icon>{{ item.title }}
+      </ion-label>
+      <ion-label *ngIf="item.status == 'read'" class="read-message">
+        <ion-icon slot="start" name="mail-open"></ion-icon>{{ item.title }}
+      </ion-label>
+      <!-- <ion-item
+          *ngIf="item.status == 'read'"
+          class="read-message"
+          style="left: 8px"
+          (click)="deleteMessage(item._id)"
+        >
+          <ion-icon name="trash"></ion-icon>
+        </ion-item> -->
+      <!-- <ion-label
+          tappable
+          style="padding-left: 5px"
+          *ngIf="notificationdata.length>0"
+        >
+          <h2><b> {{item.title}} </b></h2>
+          <p>{{item.message}}</p>
+        </ion-label> -->
+      <!-- <h3 *ngFor="notificationdata.length<=0">No Messages Available...</h3> -->
+    </ion-item>
+  </ion-list>
+
+  <h3 *ngIf="( notificationdata == undefined ||notificationdata.length <= 0)">
+    No Messages Available....
+  </h3>
+
+  <!-- <h3 [hidden]="notificationdata.length > 0">No messages avialable</h3> -->
+</ion-content>

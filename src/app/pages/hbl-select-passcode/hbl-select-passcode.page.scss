@@ -1,0 +1,55 @@
+ion-content {
+  --background: rgba(0, 0, 0, 0.270588) !important;
+  position: relative;
+  .close-icon {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+
+    ion-icon {
+      font-size: 3rem;
+      color: white;
+    }
+  }
+}
+.container {
+  background-color: white;
+  color: black;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+
+  h2 {
+    color: black;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-size: 1.4rem;
+  }
+
+  .passcode {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 120px;
+    margin: 0;
+    p {
+      color: white;
+      text-align: center;
+      text-transform: capitalize;
+      letter-spacing: 1px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      background: var(--ion-color-button);
+      width: 80%;
+      padding: 10px 0px;
+      border-radius: 7px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+  }
+}

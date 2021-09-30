@@ -1,0 +1,32 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Teacher Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content full-screen>
+  <div class="container">
+    <ion-searchbar
+      [(ngModel)]="searchText"
+      showCancelButton="never"
+      (keyup)="search_student($event)"
+      (ionClear)="ionClear()"
+      placeholder="Search Teachers"
+    ></ion-searchbar>
+
+    <div class="wrapper">
+      <ion-card *ngFor="let teacher of teacherDetails; let i =index;">
+        <div class="serial_number" (click)="goToStudentList(teacher)">
+          <h2>{{i+1}}</h2>
+        </div>
+        <h1 (click)="goToStudentList(teacher)">{{teacher.name}}</h1>
+        <div class="info" (click)="goToTeacherInfo(teacher)">
+          <ion-icon name="information-circle"></ion-icon>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

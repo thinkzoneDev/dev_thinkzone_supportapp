@@ -1,0 +1,46 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>School Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content full-screen>
+  <div class="container">
+    <ion-searchbar
+      [(ngModel)]="searchText"
+      showCancelButton="never"
+      (keyup)="search_school($event)"
+      (ionClear)="ionClear()"
+      placeholder="Search School"
+    ></ion-searchbar>
+
+    <div class="wrapper" *ngIf="schoolAvailabe">
+      <ion-card *ngFor="let school of schoolDetails; let i =index;">
+        <div
+          class="serial_number"
+          (click)="goToStudentList(school._id,school.schoolname)"
+        >
+          <h2>{{i+1}}</h2>
+        </div>
+        <div
+          class="heading"
+          (click)="goToStudentList(school._id,school.schoolname)"
+        >
+          <h1>{{school.schoolname}}</h1>
+        </div>
+        <div
+          class="info"
+          (click)="schoolDetailsPae(school._id, school.schoolname)"
+        >
+          <ion-icon name="information-circle"></ion-icon>
+        </div>
+      </ion-card>
+    </div>
+    <div class="notAvailabe" *ngIf="!schoolAvailabe">
+      <p>No School Available ....</p>
+    </div>
+  </div>
+</ion-content>

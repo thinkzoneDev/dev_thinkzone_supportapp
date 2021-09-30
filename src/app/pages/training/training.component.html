@@ -1,0 +1,157 @@
+<ion-header no-border [ngClass]="toolbarshadow ? '' : 'shadow'">
+  <ion-toolbar class="material-toolbar" color="--ion-color-cushead">
+    <ion-row>
+      <ion-back-button style="color: #ffffff; padding: 0"></ion-back-button>
+      <ion-title class="page-title-absolute">
+        <p
+          class="pMargin"
+          style="color: #ffffff; margin-left: 25%; margin-block-start: 0"
+        >
+          {{ "training.training" | translate }}
+        </p>
+      </ion-title>
+      <!-- <ion-back-button style="color:#ffffff"></ion-back-button> -->
+    </ion-row>
+    <ion-row class="justify-content-center" style="padding: 10px 0px">
+      <!-- <img alt="" class="cardimg" style="width: 60px; margin-left: 42%; " src="/assets/img/staticuser.png"> -->
+    </ion-row>
+    <div class="fade_line"></div>
+    <ion-row class="text-center">
+      <ion-col style="text-align: center">
+        <span class="fontColor">{{ "training.name" | translate }}</span>
+        <p class="white">{{ username }}</p>
+      </ion-col>
+      <!-- <ion-col>
+              <span class="fontColor">Center Name</span>
+              <p *ngIf="_centername != ''" class="white">{{_centername}}</p>
+              <p *ngIf="_centername == ''" class="white">NA</p>
+          </ion-col> -->
+      <ion-col style="text-align: center">
+        <span class="fontColor">{{ "training.mark" | translate }}</span>
+        <p class="white">40</p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="white justify-content-center">
+      <!-- <ion-button color="--ion-color-cushead" style="text-transform: capitalize; background:orangered;border:1px solid orangered;border-radius: 20px;">
+              Others
+          </ion-button> -->
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+  <div class="trainingslides">
+    <ion-slides #slider pager="true" autoplay="true" [options]="slideOpts">
+      <ion-slide class="sliderhome1"> </ion-slide>
+      <ion-slide class="sliderhome2"> </ion-slide>
+      <ion-slide class="sliderhome3"> </ion-slide>
+    </ion-slides>
+  </div>
+
+  <ion-grid>
+    <div class="ionDiv">
+      <ion-card *ngFor="let m of allmodule_name" class="ionCard text-center">
+        <div class="imgDiv" [ngSwitch]="m.modulename">
+          <div *ngSwitchCase="'odia'">
+            <img
+              (click)="module_select_onchange(m)"
+              alt=""
+              class="cardimg"
+              src="/assets/img/PGE-Icon_3.png"
+            />
+          </div>
+          <div *ngSwitchCase="'assessment'">
+            <img
+              (click)="module_select_onchange(m)"
+              alt=""
+              class="cardimg"
+              src="/assets/img/Assessment-Icon.png"
+            />
+          </div>
+          <div *ngSwitchCase="'etm(educator’s training module )'">
+            <img
+              (click)="module_select_onchange(m)"
+              alt=""
+              class="cardimg"
+              src="/assets/img/logo-round.png"
+            />
+          </div>
+
+          <div *ngSwitchCase="'thinkzone'">
+            <img
+              (click)="module_select_onchange(m)"
+              alt=""
+              class="cardimg"
+              src="/assets/img/PGE-Icon_3.png"
+            />
+          </div>
+          <div *ngSwitchCase="'english'">
+            <img
+              (click)="module_select_onchange(m)"
+              alt=""
+              class="cardimg"
+              src="/assets/img/PGE-Icon_1.png"
+            />
+          </div>
+          <div *ngSwitchCase="'math'">
+            <img
+              (click)="module_select_onchange(m)"
+              alt=""
+              class="cardimg"
+              src="/assets/img/PGE-Icon_2.png"
+            />
+          </div>
+          <div *ngSwitchDefault>
+            <img
+              (click)="module_select_onchange(m)"
+              alt=""
+              class="cardimg"
+              src="/assets/img/logo-round.png"
+            />
+          </div>
+        </div>
+        <div
+          (click)="module_select_onchange(m)"
+          [ngClass]="m.selected ? 'selected-chip' : 'unselected-chip'"
+          style="text-align: center"
+        >
+          <p class="data" style="text-transform: capitalize">
+            {{ m.modulename }}
+          </p>
+        </div>
+        <div class="verAlign">
+          <div
+            class="horizontal-flexbox"
+            [style.opacity]="m.progress != 0 ? '1' : '0'"
+            [style.display]="m.progress == 100 ? 'flex' : 'none'"
+            style="
+              margin: 10px;
+              height: 30px;
+              width: 30px;
+              border-radius: 15px;
+              border: 1px solid #4caf50;
+            "
+          >
+            <ion-icon
+              name="checkmark"
+              style="color: #4caf50; font-size: 1.2rem"
+            ></ion-icon>
+          </div>
+          <div>
+            <p style="margin-bottom: 0">{{ m.progress }}%</p>
+          </div>
+        </div>
+        <div class="progressbarborder hfc">
+          <div
+            [style.flex-grow]="m.progress"
+            style="height: 6px; background: #4caf50; flex-grow: 75"
+          ></div>
+          <div
+            [style.flex-grow]="100 - m.progress"
+            style="height: 6px; background: lightgray; flex-grow: 25"
+          ></div>
+        </div>
+      </ion-card>
+    </div>
+  </ion-grid>
+</ion-content>

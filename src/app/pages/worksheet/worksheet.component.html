@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Work sheet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-row>
+    <ion-col size=6 *ngFor="let link of worksheet">
+      <ion-card>
+        <ion-icon class="download-icon" ios="ios-download" md="md-download" (click)="download(link.s3path)"
+          style="color: #0675f4;" *ngIf="link.stored==false"></ion-icon>
+        <ion-icon name="eye" *ngIf="link.stored==true" class="view-icon" (click)="viewFile(link)"></ion-icon>
+        <ion-icon name="trash" *ngIf="link.stored==true" class="delete-icon" (click)="deleteFile(link)"></ion-icon>
+
+        <ion-row class="row-position" (click)="openOrDownload(link)">
+
+          <img class="img-size" src="../../../assets/img/filetypeicons/filetype_xls.png" />
+
+          <!-- <img class="img-size" [src]="link.img" /> -->
+
+          <!-- <img *ngIf="link.filetype == 'pdf'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_pdf.png" />
+          <img *ngIf="link.filetype == 'jpeg'" class="img-size"  src="../../../assets/img/filetypeicons/filetype_jpeg.png" />
+          <img *ngIf="link.filetype == 'docx'" class="img-size"  src="../../../assets/img/filetypeicons/filetype_doc.png" />
+          <img *ngIf="link.filetype == 'zip'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_zip.png" />
+          <img *ngIf="link.filetype == 'csv'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_xls.png" />
+          <img *ngIf="link.filetype == 'txt'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_txt.png" />
+          <img *ngIf="link.filetype == 'avi'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_avi.png" />
+          <img *ngIf="link.filetype == 'bmp'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_bmp.png" />
+          <img *ngIf="link.filetype == 'file'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_file.png" />
+          <img *ngIf="link.filetype == 'mp3'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_mp3.png" />
+          <img *ngIf="link.filetype == 'mpeg'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_mpeg.png" />
+          <img *ngIf="link.filetype == 'ppt'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_ppt.png" />
+          <img *ngIf="link.filetype == 'png'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_jpeg.png" /> -->
+
+
+        </ion-row>
+        <ion-row class="row-position">
+          <p class="displayname">{{link.name}}</p>
+        </ion-row>
+      </ion-card>
+    </ion-col>
+
+
+  </ion-row>
+
+</ion-content>

@@ -1,0 +1,25 @@
+:host {
+  ion-content {
+    --background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1));
+  }
+}
+
+ion-content {
+  ion-card-header {
+    --background: var(--ion-color-button);
+    ion-card-title {
+      text-transform: uppercase;
+      text-align: center;
+      color: #ffffff;
+    }
+  }
+  button {
+    background: var(--ion-color-button);
+    color: #ffffff;
+  }
+}
+
+.login-card {
+  background-color: white;
+  margin-top: 30px;
+}

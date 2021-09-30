@@ -1,0 +1,230 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; color: white">
+      <span>{{ "appCenters" | translate }} </span>
+    </ion-title>
+    <ion-buttons slot="end" (click)="ButtonClicked('message')">
+      <button class="test-button" ion-button icon-only>
+        <ion-badge *ngIf="notificationlength > 0">{{
+          notificationlength
+        }}</ion-badge>
+        <ion-badge></ion-badge>
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-white">
+  <div>
+    <ion-slides [options]="slideOpts" #slider autoplay="true">
+      <ion-slide>
+        <ion-img
+          class="img-size1"
+          src="../../../assets/icon/welcome111.jpg"
+        ></ion-img>
+      </ion-slide>
+      <ion-slide>
+        <ion-img
+          class="img-size1"
+          src="../../../assets/icon/welcome222.png"
+        ></ion-img>
+      </ion-slide>
+      <ion-slide>
+        <ion-img
+          class="img-size1"
+          src="../../../assets/icon/welcome333.png"
+        ></ion-img>
+      </ion-slide>
+      <ion-slide>
+        <ion-img
+          class="img-size1"
+          src="../../../assets/icon/welcome444.png"
+        ></ion-img>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div style="padding-left: 10%; padding-right: 10%; padding-top: 5%">
+    <ion-row>
+      <ion-col size="6">
+        <ion-card class="card1" (click)="ButtonClicked('centers')">
+          <div>
+            <img class="appoinment" src="assets/icon/student.png" />
+          </div>
+          <div class="setPosition">
+            <div class="apnt">{{ "dashboard.centers" | translate }}</div>
+          </div>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card class="card2" (click)="ButtonClicked('training')">
+          <div>
+            <img class="gitvoucher" src="assets/icon/training.png" />
+          </div>
+          <div class="setPosition">
+            <div class="apnt">{{ "dashboard.training" | translate }}</div>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="margin-top: 5%">
+      <ion-col size="6">
+        <ion-card class="card1" (click)="ButtonClicked('manager-box')">
+          <div>
+            <img class="appoinment" src="assets/icon/gal.png" />
+          </div>
+          <div class="setPosition">
+            <div class="apnt">{{ "dashboard.gallery" | translate }}</div>
+          </div>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card class="card2" (click)="ButtonClicked('calender-todo')">
+          <div>
+            <img class="gitvoucher" src="assets/icon/calender.png" />
+          </div>
+          <div class="setPosition">
+            <div class="apnt">{{ "dashboard.calander" | translate }}</div>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="margin-top: 5%">
+      <ion-col size="6">
+        <ion-card class="card1" (click)="ButtonClicked('survey-issues')">
+          <div>
+            <img class="appoinment" src="assets/icon/ass.png" />
+          </div>
+          <div class="setPosition">
+            <div class="apnt">{{ "dashboard.survey" | translate }}</div>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content> -->
+
+<!-- Abinash Code -->
+
+<ion-content>
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+
+      <ion-buttons slot="end" (click)="ButtonClicked('message')">
+        <ion-button>
+          <ion-icon slot="icon-only" name="notifications"></ion-icon>
+        </ion-button>
+        <ion-badge *ngIf="notificationlength > 0">{{
+          notificationlength
+        }}</ion-badge>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="spacer">
+    <h4>
+      Hello,&nbsp; <span>{{ _username.split(" ")[0] }}!</span>
+    </h4>
+    <h1>Welcome TO</h1>
+    <h3>ThinkZone</h3>
+
+    <div class="wraper-main">
+      <h5>
+        Teachers - <span>{{ userCount || 0 }}</span>
+      </h5>
+      <h5>
+        Students - <span>{{ studentsCount || 0 }}</span>
+      </h5>
+      <h5>
+        baseline completed -
+        <span>{{ baselineCount || 0 }}</span>
+      </h5>
+    </div>
+
+    <div class="custom-shape-divider-bottom-1615965752">
+      <svg
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 119"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M602.45,3.86h0S572.9,116.24,281.94,120H923C632,116.24,602.45,3.86,602.45,3.86Z"
+          class="shape-fill"
+        ></path>
+      </svg>
+    </div>
+  </div>
+
+  <h1 class="heading">Dashboard</h1>
+
+  <div class="grid-container">
+    <div>
+      <ion-card class="grid-item grid-1" (click)="openPasscodeMOdal()">
+        <div class="img-1">
+          <img class="gitvoucher" src="../../../assets/image/hbl.png" />
+        </div>
+
+        <h4 class="head-1">{{ "dashboard.hbl" | translate }}</h4>
+      </ion-card>
+
+      <!-- <ion-card class="grid-item grid-1" (click)="ButtonClicked('centers')">
+        <div class="img-1">
+          <img class="appoinment" src="../../../assets/image/school.png" />
+        </div>
+
+        <h4 class="head-1">{{ "dashboard.centers" | translate }}</h4>
+      </ion-card> -->
+      <ion-card
+        class="grid-item grid-1"
+        (click)="ButtonClicked('calender-todo')"
+      >
+        <div class="img-1">
+          <img class="gitvoucher" src="../../../assets/image/calander.png" />
+        </div>
+
+        <h4 class="head-1">{{ "dashboard.calander" | translate }}</h4>
+      </ion-card>
+    </div>
+
+    <div>
+      <ion-card class="grid-item grid-3" (click)="ButtonClicked('manager-box')">
+        <div class="img-2">
+          <img class="appoinment" src="../../../assets/image/gallery.png" />
+        </div>
+
+        <h4 class="head-2">{{ "dashboard.gallery" | translate }}</h4>
+      </ion-card>
+
+      <ion-card class="grid-item grid-3" (click)="ButtonClicked('profile')">
+        <div class="img-2">
+          <img class="gitvoucher" src="../../../assets/image/user.png" />
+        </div>
+
+        <h4 class="head-2">{{ "profile" | translate }}</h4>
+      </ion-card>
+
+      <ion-card
+        class="grid-item grid-3 grid-5"
+        (click)="ButtonClicked('survey-issues')"
+      >
+        <div class="img-2">
+          <img class="appoinment" src="../../../assets/image/survey.png" />
+        </div>
+
+        <h4 class="apnt">{{ "dashboard.survey" | translate }}</h4>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,62 @@
+ // .img-size{
+ //     height: 80px;
+ //     width: 80px;
+ //     border-radius: 100px;
+ //     margin-left: 15%;
+ //     margin-bottom: 8%;
+ //     object-fit: cover;
+ // }
+ // .ion-cards{
+ //     padding: 10%; border-bottom: 4px solid #0675f4; color:white;
+ // }
+
+ .pMargin {
+     margin-bottom: 0px;
+ }
+
+ .material-toolbar {
+    //  background: #002b45 !important;
+    background: #0675f4 !important;
+
+ }
+
+ .ionDiv {
+     display: flex;
+     flex-wrap: wrap;
+ }
+
+ .ionCardred {
+     width: 42%;
+     padding: 20px 10px;
+     box-shadow: 0 2px 4px rgba(var(--ion-color-dark-rgb), 0.24) !important;
+     border-bottom: 4px solid red;
+     background-image: linear-gradient(45deg, #f5b2557d, transparent);
+ }
+
+ .ionCardgreen {
+     width: 42%;
+     padding: 20px 10px;
+     box-shadow: 0 2px 4px rgba(var(--ion-color-dark-rgb), 0.24) !important;
+     border-bottom: 4px solid green;
+     background-image: linear-gradient(45deg, #f5b2557d, transparent);
+ }
+
+ .verAlign {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+
+ .dash {
+     margin-left: -10px;
+     margin-right: -25px;
+ }
+
+ .imgDiv {
+     width: 70px;
+     margin: 0 auto;
+ }
+
+ .cardimg {
+     width: 100%;
+ }

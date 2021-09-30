@@ -1,0 +1,40 @@
+{
+  "appTitle": "Language",
+  "appPolicy": "Privacy policy",
+  "profile": "Profile",
+  "logout": "Logout",
+  "version": "v1.3.5",
+
+  "appCenters": "Dashboard",
+  "APPOINTMENT": "APPOINTMENT",
+  "Training": "Training",
+  "Assessment": "Assessment",
+  "Maneger": "Maneger's",
+  "Calender": "Calendar",
+  "Todo": "To do",
+  "centers_title": "Centers",
+  "Centers": "Centers",
+  "Calendar to do": "Calendar to do",
+  "Training Assessment": "Training Assessment",
+  "Gallery": "Gallery",
+  "Messages": "Messages",
+  "About": "About",
+  "ThinkZone India": "ThinkZone India",
+  "dashboard": {
+    "centers": "Centers",
+    "feedback": "Feedback",
+    "training": "Training",
+    "gallery": "Gallery",
+    "calander": "Calendar",
+    "anganwadi": "Anganwadi",
+    "school": "School",
+    "fellow": "Fellow",
+    "survey": "Survey",
+    "hbl": "HBL"
+  },
+  "training": {
+    "training": "Training",
+    "name": "Name",
+    "mark": "Mark"
+  }
+}

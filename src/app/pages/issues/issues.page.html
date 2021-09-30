@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start"><ion-back-button></ion-back-button></ion-buttons>
+    <ion-title style="text-align: center"
+      >{{'dashboard.feedback' | translate}}</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div class="wrapper">
+      <div class="image_thumbnail">
+        <img
+          [src]="image_preview != null ? image_preview : 'assets/img/no_image_available.png'"
+        />
+      </div>
+
+      <button mat-raised-button (click)="takePicture()">
+        Take a Picture
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </div>
+
+    <ion-card>
+      <div *ngFor="let res of respons; let i=index;" class="item-text-wrap">
+        <ion-card-content>
+          {{i+1}}. {{ res.feedback }}
+
+          <ion-item
+            *ngIf="res.type=='select' && res.selection_mode=='single'"
+            no-padding
+          >
+            <ion-select
+              class="select_full"
+              interface="popover"
+              [value]="selectedUserEmail"
+              (ionChange)="selectOnChange_single(res, $event.detail.value)"
+              placeholder="Select One"
+              text-wrap
+            >
+              <ion-select-option
+                *ngFor="let opt of res.options"
+                value="{{opt}}"
+                text-wrap
+                value="42"
+                >{{opt}}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+          <ion-item
+            *ngIf="res.type=='select' && res.selection_mode=='multiple'"
+            expand="block"
+            no-padding
+          >
+            <ion-select
+              multiple
+              class="select_full"
+              interface="popover"
+              [value]="selectedUserEmail"
+              (ionChange)="selectOnChange_multiple(res, $event.detail.value)"
+              placeholder="Select Multiple"
+              text-wrap
+            >
+              <ion-select-option
+                *ngFor="let opt of res.options"
+                value="{{opt}}"
+                text-wrap
+                value="42"
+                >{{opt}}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+
+          <ion-item *ngIf="res.type=='calendar'" no-padding>
+            <ion-label>Date</ion-label>
+            <ion-datetime
+              display-format="DD MMM, YYYY"
+              placeholder="Select Date"
+              (ionChange)="dateOnChange(res, $event.detail.value)"
+            ></ion-datetime>
+          </ion-item>
+          <ion-item *ngIf="res.type=='input'" no-padding>
+            <ion-input
+              placeholder="enter value"
+              (input)="inputOnchange(res, $event.target.value)"
+            ></ion-input>
+          </ion-item>
+        </ion-card-content>
+      </div>
+      <div class="button" (click)="save()">
+        <button mat-raised-button>Save</button>
+      </div>
+    </ion-card>
+
+    <!-- <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="save()" tappable>
+        <ion-icon name="save"></ion-icon>
+        Save
+      </ion-button> -->
+    <!-- </ion-card-content> -->
+    <!-- </ion-card> -->
+  </div>
+</ion-content>

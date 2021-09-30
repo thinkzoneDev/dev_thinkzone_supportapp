@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'dashboard.survey' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- <ion-card class="bg-white" no-margin> -->
+  <!-- <ion-card-content> -->
+
+  <ion-list>
+    <ion-card>
+      <div
+        class="container"
+        *ngFor="let res of respons; let i=index;"
+        class="item-text-wrap"
+      >
+        <ion-card-content>
+          <span> {{i+1}}- {{ res.survey }} </span>
+
+          <ion-item
+            *ngIf="res.type=='select' && res.selection_mode=='single'"
+            no-padding
+          >
+            <ion-select
+              interface="popover"
+              [value]="selectedUserEmail"
+              (ionChange)="selectOnChange_single(res, $event.detail.value)"
+              placeholder="Select your choice"
+              text-wrap
+            >
+              <ion-select-option
+                *ngFor="let opt of res.options"
+                value="{{opt}}"
+                text-wrap
+                value="42"
+                >{{opt}}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+          <ion-item
+            *ngIf="res.type=='select' && res.selection_mode=='multiple'"
+            expand="block"
+            no-padding
+          >
+            <ion-select
+              multiple
+              interface="popover"
+              [value]="selectedUserEmail"
+              (ionChange)="selectOnChange_multiple(res, $event.detail.value)"
+              placeholder="Select Multiple"
+              text-wrap
+            >
+              <ion-select-option
+                *ngFor="let opt of res.options"
+                value="{{opt}}"
+                text-wrap
+                value="42"
+                >{{opt}}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+
+          <ion-item *ngIf="res.type=='calendar'" no-padding>
+            <ion-datetime
+              display-format="DD MMM, YYYY"
+              placeholder="Select Date"
+              (ionChange)="dateOnChange(res, $event.detail.value)"
+            ></ion-datetime>
+          </ion-item>
+          <ion-item
+            *ngIf="res.type=='input'"
+            no-padding
+            style="margin-left: 5%"
+          >
+            <ion-input
+              placeholder="Enter value"
+              (input)="inputOnchange(res, $event.target.value)"
+            ></ion-input>
+          </ion-item>
+        </ion-card-content>
+      </div>
+      <div class="btn" (click)="save()">
+        <button mat-raised-button>Save Response</button>
+      </div>
+    </ion-card>
+  </ion-list>
+</ion-content>

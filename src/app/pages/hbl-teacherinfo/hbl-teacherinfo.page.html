@@ -1,0 +1,17 @@
+<ion-content>
+  <div class="container">
+    <div class="image">
+      <img
+        src="{{ teachrDetails.image }}"
+        onerror="this.onerror=null; this.src='../../../assets/image/default-user-profile-image.jpg'"
+      />
+    </div>
+    <h1>Name - {{teachrDetails.username}}</h1>
+    <h1>UserType - {{teachrDetails.usertype}}</h1>
+    <h1>UserId - {{teachrDetails.userid}}</h1>
+    <h1>Manager name - {{teachrDetails.managername}}</h1>
+    <h1>Gender - {{teachrDetails.gender}}</h1>
+    <h1>UDISE code - {{teachrDetails.udisecode}}</h1>
+    <h1>School Name - {{teachrDetails.schoolname}}</h1>
+  </div>
+</ion-content>

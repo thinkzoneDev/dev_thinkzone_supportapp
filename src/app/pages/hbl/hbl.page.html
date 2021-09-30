@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar (click)="closeModal()">
+    <ion-row>
+      <button (click)="closeModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+      <ion-title> {{ "dashboard.hbl" | translate }} </ion-title>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div class="drop-down">
+      <!-- Month -->
+      <div class="drop">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-item lines="none">
+          <ion-label>Select Month</ion-label>
+          <ion-select
+            value="selectedMonth"
+            interface="action-sheet"
+            [value]="selectedMonth"
+            (ionChange)="selectOnChange_month($event)"
+          >
+            <ion-select-option value="1">January</ion-select-option>
+            <ion-select-option value="2">February</ion-select-option>
+            <ion-select-option value="3">March </ion-select-option>
+            <ion-select-option value="4">April</ion-select-option>
+            <ion-select-option value="5">May</ion-select-option>
+            <ion-select-option value="6">June</ion-select-option>
+            <ion-select-option value="7">July</ion-select-option>
+            <ion-select-option value="8">August</ion-select-option>
+            <ion-select-option value="9">September</ion-select-option>
+            <ion-select-option value="10">October</ion-select-option>
+            <ion-select-option value="11">November</ion-select-option>
+            <ion-select-option value="12">December</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+    </div>
+
+    <div class="grid-wrapper">
+      <ion-grid class="ion-margin" *ngIf="showtable">
+        <ion-row>
+          <ion-col>S.No</ion-col>
+          <ion-col>Student Name</ion-col>
+          <ion-col>phone</ion-col>
+          <ion-col>No of calls</ion-col>
+          <ion-col>Class</ion-col>
+          <ion-col>Baseline status</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of studentDetails; index as i">
+          <ion-col>{{ i + 1 }}</ion-col>
+          <ion-col>{{item.studentname}}</ion-col>
+          <ion-col>{{item.phone}}</ion-col>
+          <ion-col>{{item.postcallarr.length}}</ion-col>
+          <ion-col>{{item.class}}</ion-col>
+          <ion-col>{{item.mainbaselinestatus}}</ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid
+        class="ion-margin"
+        style="display: flex; justify-content: center; width: 100%"
+        *ngIf="!showtable"
+      >
+        <ion-row
+          style="
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+          "
+        >
+          No data found
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

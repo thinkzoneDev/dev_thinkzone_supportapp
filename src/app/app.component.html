@@ -1,0 +1,110 @@
+<ion-app>
+  <ion-split-pane>
+    <!-- Ion-Menu Items -->
+
+    <ion-menu>
+      <ion-content>
+        <ion-list lines="none">
+          <ion-list-header>
+            {{ "ThinkZone India" | translate }}
+          </ion-list-header>
+          <div class="img-section">
+            <ion-avatar class="avatarimg">
+              <img
+                src="{{ user_profile_image }}"
+                onerror="this.onerror=null; this.src='../assets/image/default-user-profile-image.jpg'"
+              />
+            </ion-avatar>
+            <div class="name_user">
+              <h2>
+                {{ _username }}
+              </h2>
+            </div>
+          </div>
+        </ion-list>
+
+        <ion-list lines="none">
+          <!-- Default language set to Odia -->
+          <!-- <ion-menu-toggle autoHide="false" (click)="presentActionSheet()">
+            <ion-item
+              routerLink="/language"
+              routerLinkActive="selected"
+              routerDirection="root"
+              detail="false"
+            >
+              <ion-icon slot="start" name="logo-playstation"></ion-icon>
+              <ion-label> {{ "appTitle" | translate }} </ion-label>
+            </ion-item>
+          </ion-menu-toggle> -->
+
+          <ion-menu-toggle autoHide="false">
+            <ion-item
+              routerLink="/message"
+              routerLinkActive="selected"
+              routerDirection="forward"
+              detail="false"
+            >
+              <ion-icon slot="start" name="mail"></ion-icon>
+              <ion-label> {{ "Messages" | translate }} </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle autoHide="false">
+            <ion-item
+              routerLink="/profile"
+              routerLinkActive="selected"
+              detail="false"
+            >
+              <ion-icon slot="start" name="person"></ion-icon>
+              <ion-label> {{ "profile" | translate }} </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle autoHide="false">
+            <ion-item
+              routerLink="/about"
+              routerLinkActive="selected"
+              routerDirection="forward"
+            >
+              <ion-icon slot="start" name="information-circle"></ion-icon>
+              <ion-label> {{ "About" | translate }} </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-item>
+            <ion-icon slot="start" name="moon"></ion-icon>
+            <ion-label> Dark Mode </ion-label>
+            <ion-toggle
+              slot="end"
+              (ionChange)="toggleTheme($event)"
+            ></ion-toggle>
+          </ion-item>
+        </ion-list>
+
+        <ion-list lines="none" class="footer">
+          <div class="policy">
+            <a
+              onclick="window.open('https://thinkzone-managerapp.flycricket.io/privacy.html', '_system', 'location=yes'); return false;"
+            >
+              {{ "appPolicy" | translate }}
+            </a>
+
+            <span slot="end" style="color: #0675f4">{{
+              "version" | translate
+            }}</span>
+          </div>
+
+          <div class="btn">
+            <button mat-raised-button (click)="logout()">
+              {{ "logout" | translate }} <ion-icon name="log-out"></ion-icon>
+            </button>
+          </div>
+        </ion-list>
+      </ion-content>
+      <ion-footer> </ion-footer>
+    </ion-menu>
+
+    <!-- Router Outlets -->
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

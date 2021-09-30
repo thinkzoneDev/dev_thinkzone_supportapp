@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+        <ion-text color="light">
+          <ion-text color="light" class="fw700">
+            {{ _username }}<br>
+            <span class="text10">{{'dashboard.centers' | translate}} [ {{ current_date }} ]</span>
+          </ion-text>
+        </ion-text>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="notifications('hi')">
+        <ion-icon name="notifications"></ion-icon>
+        <!--<ion-badge color="dark" slot="end">2</ion-badge>-->
+      </ion-button>
+    </ion-buttons> 
+  </ion-toolbar>
+  <!-- <ion-toolbar color="dark">
+    <ion-searchbar [(ngModel)]="searchKey"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="searchFilter()">
+        <ion-icon name="options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content class="bg-white">
+  <ion-item>
+    <ion-label>Centers allotted( {{ centers.length }} )</ion-label>
+  </ion-item>
+
+  <!--Horizontal slide-->
+  <!--<ion-slides [options]= "{ slidesPerView: 1.6, spaceBetween: 5, centeredSlides: false }">
+    <ion-slide *ngFor = "let center of centers; let i = index">
+      <ion-card (click)="centerButtonClicked(center)" routerDirection="forward" class="bg-white">
+        <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                    <img src="/assets/img/center/{{i+1}}.jpg" alt=""  />
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+        </ion-card-content>
+        <ion-item>
+          <ion-icon name="easel" slot="start"></ion-icon>
+          <ion-label>{{ center.centername }}</ion-label>
+        </ion-item>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>-->
+
+  <!--Centers will come in Vertical scroll-->
+
+  <!-- slide effect -->
+  <!-- <ion-slides  *ngFor = "let center of centers; let i = index" (click)="centerButtonClicked(center)" routerDirection="forward" class="bg-white">
+    <ion-slide>
+      <ion-card>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="/assets/img/center/{{i+1}}.jpg" alt=""  />
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+        <ion-label class="center-title">{{ center.centername }}</ion-label>
+        <br>
+        <ion-label class="center-subtitle">{{ center.block }} {{ center.district }}</ion-label>
+        <br>
+      </ion-card>
+    </ion-slide>
+  </ion-slides> -->
+
+  <ion-card *ngFor = "let center of centers; let i = index" (click)="centerButtonClicked(center)" routerDirection="forward" class="bg-white">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <img src="/assets/img/center/{{i+1}}.jpg" alt=""  />
+          </ion-col>
+          <ion-col>
+            <ion-list lines="none">
+                <ion-item class="center-title">{{ center.centername }}</ion-item>
+                <ion-item class="center-subtitle">{{ center.block }}</ion-item>
+            </ion-list>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+    
+  </ion-card>
+  <ion-item>
+    <ion-label (click)="goToManager()">Manager</ion-label>
+  </ion-item>
+  <!-- <popmenu></popmenu> -->
+</ion-content>
+  

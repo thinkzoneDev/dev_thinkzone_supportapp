@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ "dashboard.calander" | translate }}</ion-title>
+    <ion-buttons slot="end" *ngIf="showHideAddIcon" (click)="gotoAdd()">
+      <ion-button> <ion-icon name="add"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <ion-row>
+      <ion-col size="1"
+        ><span>
+          <ion-icon (click)="gotoBack()" name="arrow-back"></ion-icon> </span
+      ></ion-col>
+      <ion-col size="10" style="text-align: center"
+        ><span>{{ viewTitle }}</span></ion-col
+      >
+      <ion-col size="1"
+        ><span>
+          <ion-icon (click)="gotoNext()" name="arrow-forward"></ion-icon> </span
+      ></ion-col>
+    </ion-row>
+    <div style="margin-top: 2%">
+      <calendar
+        [eventSource]="eventSource"
+        [calendarMode]="calendar.mode"
+        [currentDate]="calendar.currentDate"
+        (onCurrentDateChanged)="onCurrentDateChanged($event)"
+        (onEventSelected)="onEventSelected($event)"
+        (onTitleChanged)="onViewTitleChanged($event)"
+        (onTimeSelected)="onTimeSelected($event)"
+        [showEventDetail]="false"
+        step="30"
+      >
+      </calendar>
+    </div>
+
+    <span>
+      <p *ngIf="TaskData.length == 0">No task available...</p>
+      <ion-card class="" *ngFor="let data of TaskData">
+        <ion-row class="icon">
+          <ion-col size="2" text-capitalize class="batch">
+            <div class="date-display">
+              {{ getDate(data.task_date) }}
+              <div>{{ showTaskDate }}</div>
+            </div>
+          </ion-col>
+          <ion-col size="8" (click)="showDetails(data)">
+            <ion-row>
+              <div class="task">{{ data.task }}</div>
+            </ion-row>
+            <ion-row>{{ data.description }}</ion-row>
+          </ion-col>
+
+          <ion-col size="2" text-capitalize>
+            <ion-icon
+              *ngIf="data.status == 'complete'"
+              class="allow"
+              name="checkmark"
+            ></ion-icon>
+            <ion-icon
+              *ngIf="data.status == 'Incomplete'"
+              class="close"
+              name="close"
+            ></ion-icon>
+            <ion-icon
+              class="progress"
+              name="sync"
+              (click)="selectedId = data._id; openmodel()"
+              *ngIf="data.status == 'pending'"
+            ></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </span>
+  </div>
+</ion-content>

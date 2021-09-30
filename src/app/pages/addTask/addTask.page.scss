@@ -1,0 +1,38 @@
+ion-toolbar {
+  --background: var(--ion-color-button);
+  color: #ffffff;
+  ion-title {
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-left: -40px;
+  }
+}
+
+ion-content {
+  ion-list {
+    ion-list-header {
+      .date {
+        color: rgb(30, 121, 30);
+        font-weight: bold;
+      }
+    }
+    ion-label {
+      font-weight: 400;
+      font-size: 0.8rem;
+    }
+    ion-textarea {
+      font-size: 0.8rem;
+    }
+  }
+  .btn {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    button {
+      background: var(--ion-color-button);
+      color: #ffffff;
+    }
+  }
+}

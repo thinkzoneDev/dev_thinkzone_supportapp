@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Video</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size=6 *ngFor="let link of videos">
+      <ion-card>
+        <ion-icon class="download-icon" ios="ios-download" md="md-download" (click)="download(link.s3path)"
+          style="color: #0675f4;" *ngIf="link.stored==false"></ion-icon>
+        <ion-icon name="eye" *ngIf="link.stored==true" class="view-icon" (click)="viewFile(link)"></ion-icon>
+        <ion-icon name="trash" *ngIf="link.stored==true" class="delete-icon" (click)="deleteFile(link)"></ion-icon>
+
+        <ion-row class="row-position" (click)="openOrDownload(link)">
+          <img class="img-size" src="../../../assets/img/filetypeicons/filetype_avi.png" />
+        </ion-row>
+
+        <ion-row class="row-position">
+          <p class="displayname">{{link.name}}</p>
+        </ion-row>
+        
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

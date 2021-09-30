@@ -1,0 +1,64 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Training-Modules</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-row>
+    <ion-col size="6" *ngFor="let data of data_list">
+      <ion-card class="ion-cards" [routerLink]="'/training-content'" [ngStyle]="{'background-image': data.bgcolor }">
+        <ion-row class="row-position">
+          <img class="img-size"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuFE59XIBsFGufr6puHmw7F18q49QwkC2F-THVh2981GgqzJ2LXQ&s" />
+        </ion-row>
+        <ion-row class="row-position">
+          <span style="padding-top: 10px;">Training module</span>
+
+        </ion-row>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+</ion-content> -->
+
+<ion-header no-border>
+  <ion-toolbar class='material-toolbar' color="--ion-color-cushead">
+    <ion-row>
+      <ion-back-button style="color:#ffffff;"></ion-back-button>
+
+      <ion-title class='page-title-absolute'>
+        <p class="pMargin white" style="color:#ffffff; padding-left: 8%; text-transform: capitalize; margin-block-start: 0;">Training-Modules</p>
+      </ion-title>
+      <!-- <ion-back-button style="color:#ffffff;"></ion-back-button> --> 
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid class="dash">
+    <div class="ionDiv">
+      <ion-card (click)='submodule_click(m)' *ngFor='let m of list' class="ionCardred text-center"
+        [ngClass]="{'ionCardred' : (m.progress != 100 ) , 'ionCardgreen' :(m.progress == 100 )  }">
+        <div class="verAlign">
+
+          <div class="imgDiv">
+            <img alt="" class="cardimg" src="/assets/img/logo-round.png">
+          </div>
+          <div class='horizontal-flexbox' [style.opacity]='m.progress == 100 ? "1" : "0"'
+            [style.display]='m.progress == 100 ? "flex" : "none"'
+            style='margin: 10px;height: 30px;width: 30px;border-radius: 15px;border:1px solid #4caf50'>
+            <ion-icon name='checkmark' style="color: #4caf50;font-size: 1.2rem"></ion-icon>
+          </div>
+          <p class="pMargin" style="text-transform: capitalize;text-align: center;">{{m.submodulename}}</p>
+        </div>
+      </ion-card>
+    </div>
+  </ion-grid>
+</ion-content>

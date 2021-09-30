@@ -1,0 +1,72 @@
+<ion-header no-border [ngClass]="'shadow'">
+  <ion-toolbar class='material-toolbar' color="--ion-color-cushead" style="background:#0675f4 !important">
+
+    <!-- <ion-buttons slot="start">
+        <ion-back-button (click)='closeQuiz()'></ion-back-button>
+      </ion-buttons>
+
+      <ion-title class='page-title-absolute' style="padding: 0px;">
+        <p style="color: white;">Training Content</p>
+    </ion-title> -->
+
+      <!-- <ion-buttons slot="end">
+        <ion-icon name='close' class='red data-large padding10' (click)='closeQuiz()'></ion-icon>
+      </ion-buttons> -->
+      <ion-row>
+          <ion-back-button (click)='closeQuiz()' style="color:#ffffff;display: block; margin-top: 8px;"></ion-back-button>
+
+          <ion-title class='page-title-absolute' style="padding: 0px;">
+              <p style="color: white;">Training Content</p>
+          </ion-title>
+          
+          <ion-icon name='close' style="color:#ffffff;display: block; margin-top: 19px; font-size: 28px;
+          margin-right: 6px;" class='red data-large padding10' (click)='closeQuiz()'></ion-icon>
+      </ion-row>
+  </ion-toolbar>
+</ion-header>
+<div style="margin-top: 25px;text-align: center;">Total Score = {{totalScore}}, Your Score = {{score}}</div>
+<ion-content scrollY='false' [scrollEvents]="true" *ngIf="quiz.length>0">
+  <ion-slides #slides class='m10'>
+      <!-- {{quiz | json}} -->
+      <ion-slide *ngFor='let q of quiz'>
+          <div class='full-width text-left'>
+              <p class='colorBlack'>{{q.question}}</p>
+              <div class='hbar'></div>
+              <ion-radio-group [(ngModel)]='q.selectedOption' (ionChange)='logData(q)'>
+                  <ion-item>
+                      <ion-label class='data'>{{q.A}}</ion-label>
+                      <ion-radio value="A"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label class='data'>{{q.B}}</ion-label>
+                      <ion-radio value="B"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label class='data'>{{q.C}}</ion-label>
+                      <ion-radio value="C"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label class='data'>{{q.D}}</ion-label>
+                      <ion-radio value="D"></ion-radio>
+                  </ion-item>
+              </ion-radio-group>
+          </div>
+      </ion-slide>
+  </ion-slides>
+  <div class='hbar gray-bg'></div>
+  <div class='hfsb' style="margin-left: 40%;">
+      <!-- <ion-icon [style.opacity]='(qno == 1)?"0.0":"1.0"' class='padding10 data-xlarge' name="ios-arrow-back" (click)='move(-1, qno)' class="icon_back"></ion-icon> -->
+      <span class='data-large' style=" width: 100%; position: relative; bottom: 3px;">{{qno}}/{{quiz.length}}</span>
+
+      <ion-icon [style.opacity]='(qno == quiz.length)?"0.0":"1.0"' class='padding10 data-xlarge' name="ios-arrow-forward" (click)='move(1,qno)' class="icon"></ion-icon>
+  </div>
+  <ion-button (click)='finishQuiz()' *ngIf='submitButton' style="margin:20px;text-transform: capitalize;" expand='block'>{{submitButtonText}}</ion-button>
+ 
+  
+</ion-content>
+<!-- Submit Quiz -->
+<ion-content *ngIf="quiz.length==0">
+  <div class="verAlign">
+      <p class='data-large red text-center'> No Questions found !</p>
+  </div>
+</ion-content>

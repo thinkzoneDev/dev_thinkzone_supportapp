@@ -1,0 +1,55 @@
+ion-toolbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  --background: var(--ion-background-color, #ffffff);
+  position: absolute;
+  ion-title {
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-left: -40px;
+  }
+}
+
+ion-content {
+  height: 100%;
+  padding-top: 60px;
+  position: relative;
+  color: white;
+  ion-list {
+    margin-top: 65px;
+    .container {
+      border: 2px solid black;
+    }
+
+    .btn {
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-top: 20px;
+      button {
+        background: var(--ion-color-button);
+        color: white;
+      }
+    }
+    span {
+      font-weight: 500;
+      text-transform: capitalize;
+      letter-spacing: 1px;
+      font-size: 1rem;
+    }
+    ion-select,
+    ion-datetime,
+    ion-input {
+      width: 100%;
+      font-size: 1rem;
+      max-width: 100% !important;
+      ion-select-option {
+        white-space: normal !important;
+      }
+    }
+  }
+}

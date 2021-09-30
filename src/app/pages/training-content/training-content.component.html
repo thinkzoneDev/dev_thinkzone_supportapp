@@ -1,0 +1,269 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Training-Content</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row>
+    <ion-col>
+      <ion-row class="row-position" style="padding-left: 6.5%;">
+        <p> <b>Understanding a classroom </b></p>
+      </ion-row>
+
+      <ion-card style="padding: 4%;">
+        <ion-row class="row-position">
+          <p style="font-size: 18px;"> <b>Understanding a classroom(ಪ್ರತ್ಯಯ? ವಿಭ) </b></p>
+
+          <div>ಮಗನೇ 's ವಿಭಕ್ತಿ ಪ್ರತ್ಯಯ? ವಿಭಕ್ತಿ ಪ್ರತ್ಯಯ? ವಿಭಕ್ತಿ ಪ್ರತ್ಯಯ?
+            ಮಗನೇ 's ವಿಭಕ್ತಿ ಪ್ರತ್ಯಯ? ವಿಭಕ್ತಿ ಪ್ರತ್ಯಯ? ವಿಭಕ್ತಿ ಪ್ರತ್ಯಯ?
+            ನೇ ವಿಭಕ್ತಿ ಪ್ರತ್ಯಯ? ವಿಭಕ್ತಿ ಪ್ರತ್ಯಯ? ವಿಭಕ್ತಿ ಪ್ರತ್ಯ
+            ಗನೇ ಭಕ್' ವಿಭಕ್ತಿ ಪ್ರತ್ಯಯ? ವಿಭಕ್ತಿ ಪ್ರತ್ಯಯ? ವಿಭಕ್ತಿ ಪ್ರತ್ಯ
+            ವಿಭಕ್ತಿ ಪ್ರತ್ಯಯನೇ ವಿಭಕ್ತಿ ಪ್ರತ್ಯಯ? ವಿಭಕ್ತಿ ಪ್ರತ್ಯಯ? ವಿಭಕ್ತಿ ಪ್ರತ್ಯ
+          </div>
+        </ion-row>
+        <ion-row class="row-position">
+          <span style="padding-top: 10px;">Training Content</span>
+        </ion-row>
+      </ion-card>
+
+      <ion-card>
+        <ion-row class="row-position">
+          <img class="img-size" src="https://lh3.googleusercontent.com/proxy/oJF0JSd4QpusOvC_g9o6nzyTpxzuk4snNWFFaDaBDpRBRVxNsB88pEpvu-CDzye1sDbCAgV7sR42QzFKjHqlKgsERvyha20HhhE" />
+          <p class="footerofcontent">Video content</p>
+          <img class="img-size" src="https://hudson.wish.org/~/media/053-000/Graphics/Icons/Old%20Icons/312x214%20-%20Page%20Thumb/MAW_icon-vector-blue_57_news_312x214.ashx?h=214&la=en&w=312" />
+          <p class="footerofcontent">Work sheets</p>
+          <img class="img-size" src="https://www.pinclipart.com/picdir/middle/157-1575116_iconica-free-pop-icon-quiz-quiz-icon.png" />
+          <p class="footerofcontent">Quizes</p>
+        </ion-row>
+      </ion-card>
+
+      <div
+        style="height: 9%; border: 1px solid; border-radius: 7px; padding: 1% 2% 0% 2%;; width: 64%; margin: 5% 3%; font-size: 25px;">
+        Complete Activity </div>
+
+    </ion-col>
+  </ion-row>
+
+</ion-content> -->
+
+<!-- <ion-header  no-border [ngClass]="(toolbarshadow)?'':'shadow'">
+    <ion-toolbar class='material-toolbar'>
+      <ion-row>
+          <ion-title class='page-title-absolute'><p>TRAINING CONTENT</p></ion-title>
+          
+          <ion-icon name='arrow-back' (click)='goBack()' class='padding10 data-large'></ion-icon>
+      </ion-row>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+  
+  <ion-item class="full_width" [hidden]="hideSessionSavedTag">
+    <div class="notify_div">
+        <ion-row>
+          <ion-icon name="alert"></ion-icon>
+          <ion-label>This training session already saved.</ion-label>
+        </ion-row>
+    </div>
+  </ion-item>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-item class="full_width">
+        <ion-label>Scrollable content</ion-label>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item class="full_width">
+        <ion-textarea disabled readonly value="{{ content }}" class="textarea"></ion-textarea>
+      </ion-item>
+    </ion-row>
+
+    <ion-img *ngFor="let img of image;"  src="{{baseUrl}}{{img}}"></ion-img>
+
+    <ion-row>
+      <ion-item class="full_width">
+        <ion-label>Video content</ion-label>
+      </ion-item>
+    </ion-row>
+    <ion-row class="right-align" *ngFor="let v of video; let i = index;">
+      <ion-button shape="round" fill="outline" size="medium" color="primary" (click)="play_video(v)" tappable class="explore-btn">
+        Play Video {{ i+1 }}
+      </ion-button>
+    </ion-row>
+
+    <ion-row>
+      <ion-item class="full_width">
+        <ion-label>Work Sheets</ion-label>
+      </ion-item>
+    </ion-row>
+    <ion-row class="right-align" *ngFor="let w of worksheet; let i = index;">
+      <ion-button shape="round" fill="outline" size="medium" color="primary" (click)="open_document(w)" tappable class="explore-btn">
+        Open Document
+      </ion-button>
+    </ion-row>
+
+    <ion-text>Quizes</ion-text>
+    <ion-list>
+      <ion-radio-group *ngFor="let qz of quiz; let i =index" (ionSelect) = "quiz_option_div_clicked($event, qz)">
+        <ion-list-header class="ionheader">
+          <ion-label>Q{{ i+1 }}) {{ qz.question }}</ion-label>
+        </ion-list-header>
+    
+        <ion-item>
+          <ion-label> {{ qz.A }}</ion-label>
+          <ion-radio slot="start" value="A"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label> {{ qz.B }}</ion-label>
+          <ion-radio slot="start" value="B"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label> {{ qz.C }}</ion-label>
+          <ion-radio slot="start" value="C"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label> {{ qz.D }}</ion-label>
+          <ion-radio slot="start" value="D"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    
+
+
+
+
+    <ion-row class="right-align">
+<ion-button icon-left size="medium" color="primary" (click)="complete_activity()" float-right tappable class="explore-btn">
+          Complete Activity
+      </ion-button>
+    </ion-row>
+
+  </ion-grid>
+</ion-content> -->
+
+<!-- <ion-header  no-border [ngClass]="(toolbarshadow)?'shadow':'shadow'">
+  <ion-toolbar class='material-toolbar'>
+    <ion-row>
+        <ion-title class='page-title-absolute'>
+          <p>Training Content</p>
+        </ion-title>
+        <ion-back-button></ion-back-button>
+    </ion-row>
+  </ion-toolbar>
+</ion-header> -->
+
+
+<ion-header no-border [ngClass]="(toolbarshadow)?'':'shadow'">
+  <ion-toolbar class='material-toolbar' color="--ion-color-cushead">
+    <ion-row>
+      <ion-back-button style="color:#ffffff;display: block;"></ion-back-button>
+      <ion-title class='page-title-absolute'>
+        <p class="pMargin" style="color:#ffffff; padding-left: 8%; text-transform: capitalize; margin-block-start: 0;">
+          Training content</p>
+      </ion-title>
+      <!-- <ion-back-button style="color:#ffffff;display: block;"></ion-back-button> -->
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scrollY='false' [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+
+  <ion-item class="full_width" [hidden]="hideSessionSavedTag">
+    <div class="notify_div">
+      <ion-row>
+        <ion-icon name="alert"></ion-icon>
+        <ion-label style="margin-left: 3%;">This training session already saved.</ion-label>
+      </ion-row>
+    </div>
+  </ion-item>
+
+  <ion-grid>
+    <!-- Scrollable content -->
+    <ion-row>
+      <ion-item class="full_width">
+        <ion-label class="head">{{submodulename}}</ion-label>
+      </ion-item>
+    </ion-row>
+
+    <ion-card class="content_card">
+      <div class="">
+        <ion-textarea disabled readonly [innerHTML]="content" class="textarea"></ion-textarea>
+      </div>
+    </ion-card>
+
+
+
+    <ion-card class="videoCard">
+      <div class="d-flex justify-content-around align-items-center">
+        <ion-row>
+          <ion-col class="verAlign" *ngIf="video.length>0" size=4>
+            <ion-label class="padLeft" (click)="play_video()" *ngIf="video.length>0">Video content</ion-label>
+            <ion-label class="padLeft" *ngIf="video.length ==0">No Video Available</ion-label>
+            <div class="right-align" style="position:relative;">
+              <span *ngFor="let v of video; let i = index;">
+                <ion-badge style="position: absolute;left: 26px; background: red;">{{ i+1 }}</ion-badge>
+              </span>
+              <div class="playBorder">
+                <a href="javascript:void(0);">
+                  <ion-icon name="play" class="data-xlarge play" (click)="play_video('')" style="display: block;font-size: 15px;">
+                  </ion-icon>
+                </a>
+              </div>
+            </div>
+          </ion-col>
+
+          <!-- Worksheet is commented for Manager App -->
+          <!--
+          <ion-col class="verAlign" *ngIf="worksheet.length>0" size=4>
+            <ion-label (click)="open_document(w)" *ngIf="worksheet.length>0" class="padLeft">Work Sheets</ion-label>
+            <ion-label *ngIf="worksheet.length==0" class="padLeft">No Work Sheets</ion-label>
+            <div class="right-align" style="position:relative;">
+              <span *ngFor="let v of worksheet; let i = index;">
+                <ion-badge style="position: absolute;left: 26px; background: red;">{{ i+1 }}</ion-badge>
+              </span>
+              <div class="playBorder">
+                <a href="javascript:void(0);">
+                  <ion-icon name="paper" class="paper data-xlarge" (click)="open_document(w)" style="display: block;font-size: 15px;">
+                  </ion-icon>
+                </a>
+              </div>
+            </div>
+          </ion-col>
+          -->
+
+          <ion-col class="verAlign" (click)="open_quiz()" size=4>
+            <ion-label class="padLeft">Quizes</ion-label>
+            <span>
+              <img src="../../../assets/icon/training.png" style="height: 28px; width: 30px;" />
+            </span>
+          </ion-col>
+
+          <!-- <ion-col class="verAlign" size=4>
+          <ion-label (click)="open_quiz()" class="padLeft">Quizes</ion-label>
+          <img alt="" (click)="open_quiz()" class="cardimg" style="width:40px;" src="/assets/img/quiz.png">
+        </ion-col> -->
+
+
+        </ion-row>
+      </div>
+    </ion-card>
+
+    <ion-row class="text-center">
+      <ion-button icon-left size="medium" color="primary" (click)="complete_activity()" tappable class="explore-btn">
+        Complete Activity
+      </ion-button>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

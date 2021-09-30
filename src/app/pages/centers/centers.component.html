@@ -1,0 +1,137 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ "dashboard.centers" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-searchbar
+  (ionInput)="searchaData($event)"
+  [(ngModel)]="isSearch"
+></ion-searchbar> -->
+
+<ion-content>
+  <div class="container">
+    <ion-searchbar
+      showCancelButton="focus"
+      cancelButtonText="Custom Cancel"
+      [(ngModel)]="isSearch"
+    ></ion-searchbar>
+    <!-- (keyup)="searchaData($event)" -->
+
+    <div>
+      <ion-row class="handlehead" tabindex="0" (click)="ShowHideDiv(0)">
+        <ion-badge mode="ios">{{ centers ? centers.length : 0 }}</ion-badge>
+        <ion-col> {{ "dashboard.anganwadi" | translate }}</ion-col>
+        <!-- <i class="arrow down" *ngIf="hideShowDiv"></i> -->
+        <ion-col size="1">
+          <ion-icon name="arrow-down" *ngIf="hideShowDiv"></ion-icon>
+          <ion-icon name="arrow-up" *ngIf="!hideShowDiv"></ion-icon>
+        </ion-col>
+        <!-- <i class="arrow up" *ngIf="!hideShowDiv"></i> -->
+      </ion-row>
+
+      <div>
+        <ion-list class="showhideAnimation">
+          <ion-item
+            routerDirection="forward"
+            *ngFor="let item of centers"
+            (click)="moveToIssues(item)"
+          >
+            <div class="circlecss" [style.background]="item.background">
+              {{ item.centername.charAt(0) | uppercase }}
+            </div>
+            <ion-label tappable>
+              <h2>{{ item.centername | titlecase }}</h2>
+              <p>{{ item.districtvalue }}, {{ item.block }}</p>
+            </ion-label>
+            <ion-icon slot="end" name="arrow-forward" tappable></ion-icon>
+          </ion-item>
+          <h3 *ngIf="centers.length == 0">There are no records...</h3>
+        </ion-list>
+      </div>
+    </div>
+
+    <div>
+      <!-- <div class="handlehead" tabindex="0" (click)="ShowHideDiv(1)">
+        <span style="margin-right: 66.2%;"> School </span>
+        <i class="arrow down" *ngIf="ShowSchoolDiv"></i>
+        <i class="arrow up" *ngIf="!ShowSchoolDiv"></i>
+      </div> -->
+      <ion-row class="handlehead" tabindex="0" (click)="ShowHideDiv(1)">
+        <ion-badge mode="ios">{{
+          schoolCenters ? schoolCenters.length : 0
+        }}</ion-badge>
+        <ion-col> {{ "dashboard.school" | translate }}</ion-col>
+
+        <ion-col size="1">
+          <ion-icon name="arrow-down" *ngIf="ShowSchoolDiv"></ion-icon>
+          <ion-icon name="arrow-up" *ngIf="!ShowSchoolDiv"></ion-icon>
+        </ion-col>
+      </ion-row>
+
+      <div>
+        <ion-list class="SchoolshowhideAnimation">
+          <ion-item
+            routerDirection="forward"
+            *ngFor="let item of schoolCenters"
+            (click)="moveToIssues(item)"
+          >
+            <div class="circlecss" [style.background]="item.background">
+              {{ item.centername.charAt(0) | uppercase }}
+            </div>
+
+            <ion-label tappable>
+              <h2>{{ item.centername | titlecase }}</h2>
+              <p>{{ item.districtvalue }}, {{ item.block }}</p>
+            </ion-label>
+            <ion-icon slot="end" name="arrow-forward" tappable></ion-icon>
+          </ion-item>
+          <h3 *ngIf="schoolCenters.length == 0">There are no records...</h3>
+        </ion-list>
+      </div>
+    </div>
+
+    <div>
+      <!-- <div class="handlehead" tabindex="0" (click)="ShowHideDiv(2)">
+        <span style="margin-right: 67%;"> Fellow </span>
+        <i class="arrow down" *ngIf="ShowfellowDiv"></i>
+        <i class="arrow up" *ngIf="!ShowfellowDiv"></i>
+      </div> -->
+
+      <ion-row class="handlehead" tabindex="0" (click)="ShowHideDiv(2)">
+        <ion-badge mode="ios">{{
+          fellowCenters ? fellowCenters.length : 0
+        }}</ion-badge>
+        <ion-col> {{ "dashboard.fellow" | translate }}</ion-col>
+
+        <ion-col size="1">
+          <ion-icon name="arrow-down" *ngIf="ShowfellowDiv"></ion-icon>
+          <ion-icon name="arrow-up" *ngIf="!ShowfellowDiv"></ion-icon>
+        </ion-col>
+      </ion-row>
+
+      <div>
+        <ion-list class="FelloshowhideAnimation">
+          <ion-item
+            routerDirection="forward"
+            *ngFor="let item of fellowCenters"
+            (click)="moveToIssues(item)"
+          >
+            <div class="circlecss" [style.background]="item.background">
+              {{ item.centername.charAt(0) | uppercase }}
+            </div>
+            <ion-label tappable>
+              <h2>{{ item.centername | titlecase }}</h2>
+              <p>{{ item.districtvalue }}, {{ item.block }}</p>
+            </ion-label>
+            <ion-icon slot="end" name="arrow-forward" tappable></ion-icon>
+          </ion-item>
+          <h3 *ngIf="fellowCenters.length == 0">There are no records...</h3>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+</ion-content>

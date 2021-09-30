@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Task </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        <div>
+          <span> You are adding the task for: </span>
+          <span class="date"> {{todayDate}} </span>
+        </div>
+      </ion-list-header>
+      <ion-item>
+        <ion-label position="floating">Select Time </ion-label>
+        <ion-datetime
+          displayFormat="h:mm a"
+          [(ngModel)]="selected_time"
+        ></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Task</ion-label>
+        <ion-input [(ngModel)]="task"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea
+          rows="3"
+          cols="20"
+          [(ngModel)]="description"
+        ></ion-textarea>
+      </ion-item>
+      <div class="btn">
+        <button mat-raised-button (click)="savetask()">Save</button>
+      </div>
+    </ion-list>
+  </ion-card>
+</ion-content>

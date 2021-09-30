@@ -1,0 +1,23 @@
+<ion-content>
+  <ion-card class="login-card">
+    <ion-card-header>
+      <ion-card-title>{{ message_title }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content style="padding-top: 10px">
+      {{ message_body }}
+    </ion-card-content>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+        <ion-col>
+          <button mat-raised-button (click)="closeModal()">OK</button>
+        </ion-col>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

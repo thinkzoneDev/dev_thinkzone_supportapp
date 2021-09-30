@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> {{username}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <ion-card>
+      <div class="user_img">
+        <img
+          src="{{ parent.user_profile_image }}"
+          onerror="this.onerror=null; this.src='../assets/image/default-user-profile-image.jpg'"
+        />
+      </div>
+      <div class="current_details">
+        <div class="section">
+          <ion-icon name="person" style="color: #39cccc"></ion-icon>
+          <p>Id&nbsp;-</p>
+          <h4>{{ userid }}</h4>
+        </div>
+        <div class="section">
+          <ion-icon name="mail" style="color: #01ff70"></ion-icon>
+          <p>Email&nbsp;-</p>
+          <h4>{{ email }}</h4>
+        </div>
+        <div class="section">
+          <ion-icon name="male" style="color: #0074d9"></ion-icon>
+          <p>Gender&nbsp;-</p>
+          <h4 class="name"></h4>
+        </div>
+        <div class="section">
+          <ion-icon name="calendar" style="color: #7fdbff"></ion-icon>
+          <p>Dob&nbsp;-</p>
+          <h4 class="name"></h4>
+        </div>
+        <div class="section">
+          <ion-icon name="planet" style="color: #3d9970"></ion-icon>
+          <p>Address&nbsp;-</p>
+          <h4 class="name"></h4>
+        </div>
+        <div class="section">
+          <ion-icon name="calendar" style="color: #ffdc00"></ion-icon>
+          <p>Redg. Date&nbsp;-</p>
+          <h4 class="name"></h4>
+        </div>
+        <div class="section">
+          <ion-icon name="calendar" style="color: #ffdc00"></ion-icon>
+          <p>Passcode&nbsp;- {{passcode}}</p>
+          <h4 class="name"></h4>
+        </div>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,215 @@
+<!-- 
+<ion-content> 
+  <ion-card class="login-card">
+    <ion-card-header color="primary">
+      <ion-card-title><ion-icon name="lock"></ion-icon>Sign-in</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <form [formGroup]="signinFormGroup" class="list-form">
+          <ion-item no-padding class="animated fadeInUp">
+            <ion-label position="floating">
+              <ion-icon name="mail" item-start></ion-icon>
+              Email
+            </ion-label>
+            <ion-input color="secondary" type="email" formControlName="email"></ion-input>
+          </ion-item>
+          <p ion-text class="text08" *ngIf="signinFormGroup.get('email').touched && signinFormGroup.get('email').hasError('required')">
+            <ion-text color="danger">
+              Invalid
+            </ion-text>
+          </p>
+          <ion-item no-padding class="animated fadeInUp">
+            <ion-label position="floating">
+                <ion-icon name="apps"></ion-icon>
+              Password
+            </ion-label>
+            <ion-input color="secondary" type="password" formControlName="password"></ion-input>
+          </ion-item>
+          <p ion-text color="danger" class="text08" *ngIf="signinFormGroup.get('password').touched && signinFormGroup.get('password').hasError('required')">
+            <ion-text color="danger">
+              Invalid
+            </ion-text>
+          </p>
+          <ion-label color="danger" position="floating" *ngIf="!_status">
+            {{ _message}}
+          </ion-label>
+        </form>
+    </ion-card-content>
+    <ion-grid>
+        <ion-row>
+          <ion-col></ion-col>
+          <ion-col>
+            <ion-button color="medium" (click)="closeModal()">
+              <ion-icon slot="start" name="close"></ion-icon> Cancel
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button icon-left color="primary" (click)="signin()" [disabled]="!signinFormGroup.valid" tappable>
+              <ion-icon name="log-in"></ion-icon>Signin
+            </ion-button>
+          </ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-card>
+</ion-content> -->
+
+<!-- <ion-content>
+  <div class="ion_content">
+    <div class="page-wrap">
+      <div class="top-head">
+        <div class="line-3">Sign In To Your Account</div>
+      </div>
+
+      <ion-list>
+        <ion-item class="input-holder">
+          <ion-label position="floating" class="themetexttype">Email</ion-label>
+          <ion-input [(ngModel)]="email"></ion-input>
+
+          <ion-icon name="mail" class="icon-size"></ion-icon>
+        </ion-item>
+
+        <ion-item class="input-holder">
+          <ion-label position="floating" class="themetexttype"
+            >Password</ion-label
+          >
+          <ion-input
+            [(ngModel)]="password"
+            [type]="password_type"
+            value="Password"
+          ></ion-input>
+          <ion-icon
+            name="eye"
+            (click)="togglePasswordMode()"
+            class="icon-size"
+          ></ion-icon>
+        </ion-item>
+        <ion-label style="color: red">{{_message}}</ion-label>
+      </ion-list>
+
+      <button mat-raised-button (click)="signin()" color="primary">
+        SIGN IN <span class="material-icons"> account_box </span>
+      </button>
+    </div>
+  </div>
+</ion-content> -->
+
+<!-- Abinash Code -->
+
+<ion-content>
+  <div class="container">
+    <main>
+      <mat-card>
+        <!-- <div class="img-div">
+            <img src="../../../../assets/img/thinkdesign.png" />
+            <h3>SIGN IN</h3>
+          </div> -->
+        <mat-card-content>
+          <div class="input-icon">
+            <mat-form-field>
+              <input matInput placeholder="Email" [(ngModel)]="email" />
+            </mat-form-field>
+            <ion-icon name="mail" class="toggle"></ion-icon>
+          </div>
+
+          <div class="input-icon">
+            <mat-form-field>
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                matInput
+                placeholder="Password"
+                [(ngModel)]="password"
+              />
+            </mat-form-field>
+            <ion-icon
+              [name]="passwordToggle"
+              (click)="togglePassword()"
+              class="toggle"
+            ></ion-icon>
+          </div>
+          <ion-label style="color: red; text-align: center"
+            >{{_message}}</ion-label
+          >
+        </mat-card-content>
+      </mat-card>
+      <div class="button">
+        <button
+          type="submit"
+          mat-raised-button
+          style="background-color: var(--ion-color-button); color: white"
+          (click)="signin()"
+        >
+          Sign In
+          <span class="material-icons"> account_box </span>
+        </button>
+      </div>
+    </main>
+    <ion-footer>
+      <div class="footer">
+        <a
+          class="container-footer"
+          onclick="window.open('https://www.facebook.com/ThinkZoneIndia', '_system', 'location=yes'); return false;"
+        >
+          <button
+            mat-fab
+            color="default"
+            aria-label="Example icon button with a filter list icon"
+          >
+            <ion-icon style="color: #1877f2" name="logo-facebook"></ion-icon>
+          </button>
+          <mat-label>Facebook</mat-label>
+        </a>
+
+        <a
+          class="container-footer"
+          onclick="window.open('https://twitter.com/ThinkZoneIndia?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor', '_system', 'location=yes'); return false;"
+        >
+          <button
+            mat-fab
+            color="default"
+            aria-label="Example icon button with a filter list icon"
+          >
+            <ion-icon style="color: #1da1f2" name="logo-twitter"></ion-icon>
+          </button>
+          <mat-label> Twitter</mat-label>
+        </a>
+
+        <a
+          class="container-footer"
+          onclick="window.open('https://www.youtube.com/channel/UCY1_YWwdBuCNrmHkta2SpoQ', '_system', 'location=yes'); return false;"
+        >
+          <button
+            mat-fab
+            color="default"
+            aria-label="Example icon button with a filter list icon"
+          >
+            <ion-icon
+              style="color: #ff0000"
+              size="medium"
+              name="logo-youtube"
+            ></ion-icon>
+          </button>
+          <mat-label> youTube</mat-label>
+        </a>
+        <a
+          class="container-footer"
+          onclick="window.open('https://www.linkedin.com/company/thinkzoneindia/mycompany/', '_system', 'location=yes'); return false;"
+        >
+          <button
+            mat-fab
+            color="default"
+            aria-label="Example icon button with a filter list icon"
+          >
+            <ion-icon
+              style="color: #0e76a8"
+              size="medium"
+              name="logo-linkedin"
+            ></ion-icon>
+          </button>
+          <mat-label> Linkedin</mat-label>
+        </a>
+      </div>
+      <p>Copyright &copy; 2020-21 ThinkZone</p>
+    </ion-footer>
+  </div>
+</ion-content>

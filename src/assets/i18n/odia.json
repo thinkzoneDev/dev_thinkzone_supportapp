@@ -1,0 +1,40 @@
+{
+  "appTitle": "Language",
+  "appPolicy": "ପ୍ରାଇବାସି ପଲିସି",
+  "profile": "ପ୍ରୋଫାଇଲ୍ ",
+  "logout": "ଲଗ ଆଉଟ",
+  "version": "v୧.୩.୫",
+
+  "appCenters": "ମୁଖ୍ୟ ସୂଚୀ",
+  "APPOINTMENT": "ସାକ୍ଷାତ",
+  "Training": "ଟ୍ରେନିଂ",
+  "Assessment": "ମୂଲ୍ୟାଙ୍କନ",
+  "Maneger": "ମ୍ୟାନେଜର",
+  "Calender": "କ୍ୟାଲେଣ୍ଡର",
+  "Todo": "ଆଗତ କାର୍ଯ୍ୟ",
+  "centers_title": "କେନ୍ଦ୍ର ତାଲିକା",
+  "Centers": "କେନ୍ଦ୍ରଗୁଡିକ |",
+  "Calendar to do": "କ୍ୟାଲେଣ୍ଡର",
+  "Training Assessment": "ତାଲିମ ମୂଲ୍ୟାଙ୍କନ",
+  "Gallery": "ଗ୍ୟାଲେରୀ",
+  "Messages": "ବାର୍ତ୍ତା",
+  "About": "ବିଷୟରେ",
+  "ThinkZone India": "ThinkZone India",
+  "dashboard": {
+    "centers": "କେନ୍ଦ୍ର",
+    "feedback": "ମତାମତ",
+    "training": "ତାଲିମ",
+    "gallery": "ଗ୍ୟାଲ୍ଲେରୀ",
+    "calander": "କ୍ୟାଲେଣ୍ଡର",
+    "anganwadi": "ଅଙ୍ଗନବାଡି",
+    "school": "ସ୍କୁଲ",
+    "fellow": "ଫେଲୋ",
+    "survey": "ଅବଲୋକନ",
+    "hbl": "ଘରେ ରହି ଶିକ୍ଷା"
+  },
+  "training": {
+    "training": "ତାଲିମ",
+    "name": "ନାମ",
+    "mark": "ମାର୍କ"
+  }
+}

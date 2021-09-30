@@ -1,0 +1,166 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'dashboard.gallery' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <!-- FOLDER LIST  -->
+
+    <div class="main-container">
+      <div *ngFor="let link of folderlist">
+        <ion-card (click)="folder_clicked(link)">
+          <div class="flex">
+            <img class="img-size" src="../../../assets/image/folder.png" />
+            <p class="displayname">{{link}}</p>
+          </div>
+        </ion-card>
+      </div>
+    </div>
+
+    <!-- ===========  -->
+
+    <!-- FILE LIST  -->
+    <ion-row>
+      <ion-col size="6" *ngFor="let link of links">
+        <ion-card *ngIf="link.type == 'file'">
+          <!-- <i class="fa fa-download" aria-hidden="true"></i> -->
+          <!-- <ion-icon class="download-icon" ios="ios-download" md="md-download" (click)="download(link.path)" style="color: #0675f4;" -->
+          <ion-icon
+            (click)="download(link.s3path)"
+            *ngIf="link.stored==false"
+            class="download-icon"
+            ios="ios-download"
+            md="md-download"
+          ></ion-icon>
+          <ion-icon
+            (click)="viewFile(link)"
+            *ngIf="link.stored==true"
+            class="view-icon"
+            name="eye"
+          ></ion-icon>
+          <ion-icon
+            (click)="deleteFile(link)"
+            *ngIf="link.stored==true"
+            class="delete-icon"
+            name="trash"
+          ></ion-icon>
+
+          <ion-row (click)="openOrDownload(link)" class="row-position">
+            <!-- <img class="img-size" [src]="link.img" /> -->
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'pdf'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/filetype_pdf.png"
+            />
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'jpeg'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/filetype_jpeg.png"
+            />
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'docx'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/filetype_doc.png"
+            />
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'zip'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/filetype_zip.png"
+            />
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'csv'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/filetype_xls.png"
+            />
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'txt'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/filetype_txt.png"
+            />
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'avi'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/filetype_avi.png"
+            />
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'bmp'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/filetype_bmp.png"
+            />
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'file'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/filetype_file.png"
+            />
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'mp3'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/filetype_mp3.png"
+            />
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'mpeg'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/filetype_mpeg.png"
+            />
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'ppt'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/filetype_ppt.png"
+            />
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'png'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/filetype_jpeg.png"
+            />
+            <img
+              *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'directory'"
+              class="img-size"
+              src="../../../assets/img/filetypeicons/folder.jpg"
+            />
+          </ion-row>
+          <ion-row class="row-position">
+            <p class="displayname">{{link.displayname}}</p>
+            <!-- <p>{{link.stored}}</p>
+          <p>{{link.stored_url}}</p> -->
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <!-- ===========  -->
+
+    <!-- <ion-row >
+    <ion-col size=6 *ngFor="let link of links">
+      <ion-card >
+        <ion-icon (click)="download(link.s3path)" *ngIf="link.stored==false && link.filetype != 'directory'" class="download-icon" ios="ios-download" md="md-download" style="color: #0675f4;"></ion-icon>
+        <ion-icon (click)="viewFile(link)" *ngIf="link.stored==true" class="view-icon" name="eye"></ion-icon>
+        <ion-icon (click)="deleteFile(link)" *ngIf="link.stored==true" class="delete-icon" name="trash"></ion-icon>
+
+        <ion-row (click)="openOrDownload(link)" class="row-position">
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'pdf'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_pdf.png" />
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'jpeg'" class="img-size"  src="../../../assets/img/filetypeicons/filetype_jpeg.png"/>
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'docx'" class="img-size"  src="../../../assets/img/filetypeicons/filetype_doc.png" />
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'zip'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_zip.png" />
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'csv'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_xls.png" />
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'txt'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_txt.png" />
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'avi'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_avi.png" />
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'bmp'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_bmp.png" />
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'file'" class="img-size"  src="../../../assets/img/filetypeicons/filetype_file.png"/>
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'mp3'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_mp3.png" />
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'mpeg'" class="img-size"  src="../../../assets/img/filetypeicons/filetype_mpeg.png"/>
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'ppt'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_ppt.png" />
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'png'"  class="img-size"  src="../../../assets/img/filetypeicons/filetype_jpeg.png"/>
+          <img *ngIf="link.filetype != undefined && link.filetype.toLowerCase() == 'directory'"  class="img-size"  src="../../../assets/img/filetypeicons/folder.jpg" />
+        </ion-row>
+        <ion-row class="row-position">
+          <p class="displayname">{{link.displayname}}</p>
+        </ion-row>
+      </ion-card>
+    </ion-col>
+  </ion-row> -->
+  </div>
+</ion-content>

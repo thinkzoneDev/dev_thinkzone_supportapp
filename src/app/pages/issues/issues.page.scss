@@ -1,0 +1,121 @@
+// :host {
+//     ion-content {
+//         // --background: linear-gradient(-135deg, var(--ion-color-medium), var(--ion-color-light))
+//     }
+// }
+
+// .select_full{
+//     max-width: 100% !important;
+// }
+// .alert-checkbox-label.sc-ion-alert-md
+// {
+//     padding-top: 13px;
+//     padding-bottom: 13px;
+//     -ms-flex: 1;
+//     flex: 1;
+//     color: var(--ion-color-step-850,#262626);
+//     font-size: 16px;
+//     text-overflow: ellipsis;
+// }
+// .alert-checkbox-label {
+//     white-space: normal !important;
+//     }
+//     .alert-ios .alert-radio-label{
+//         white-space: pre-line;
+//         }
+
+//         .alert-md .alert-radio-label{
+//         white-space: pre-line;
+//         }
+
+//         .alert-wp .alert-radio-label{
+//         white-space: pre-line;
+//         }
+
+//         .ion-select-option{
+//             white-space: normal !important;
+//           }
+
+// .image_div{
+//     width: 100%;
+//     padding: 10px;
+//     text-align: center;
+// }
+
+//Abinash Code
+
+ion-header {
+  ion-toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    ion-title {
+      text-align: center;
+      margin-left: -40px;
+      font-weight: 400;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+ion-content {
+  .container {
+    margin-top: 100px;
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 60%;
+      .image_thumbnail {
+        margin: auto;
+        height: 40%;
+        width: 50%;
+
+        img {
+          height: 280px;
+          width: 100%;
+        }
+      }
+      button {
+        background: var(--ion-color-button);
+        color: white;
+        ion-icon {
+          font-size: 1.2rem;
+          margin-left: 7px;
+        }
+      }
+    }
+  }
+  .select_full {
+    max-width: 100% !important;
+  }
+  ion-select,
+  ion-item {
+    font-size: 0.9rem;
+    font-family: sans-serif;
+    text-transform: capitalize;
+  }
+  ion-card-content {
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+
+  ion-select-option {
+    text-overflow: unset !important;
+    white-space: unset !important;
+    overflow: unset !important;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    button {
+      background: var(--ion-color-button);
+      color: white;
+    }
+  }
+}

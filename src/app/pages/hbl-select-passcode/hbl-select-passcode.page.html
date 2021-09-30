@@ -1,0 +1,11 @@
+<ion-content (click)="closeModal()">
+  <div class="close-icon"><ion-icon name="close-circle"></ion-icon></div>
+</ion-content>
+<ion-footer class="container">
+  <div class="container">
+    <h2>Select your passcode</h2>
+    <div class="passcode" *ngFor="let item of passcodeArray">
+      <p (click)="goToTeacherDetails(item.passcode)">{{item.passcode}}</p>
+    </div>
+  </div>
+</ion-footer>
